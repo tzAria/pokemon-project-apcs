@@ -51,21 +51,25 @@ public class Main {
 	    if(cpuChoiceIndex == 0) {
 	    	pokemonList.get(0).setCPUActive();
 	    	System.out.println("CPU has chosen " + pokemonList.get(0).getName());
+	    	activeList.add(pokemonList.get(0));
 	    	pokemonList.remove(0);
 	    }
 	    else if(cpuChoiceIndex == 1) {
 	    	pokemonList.get(1).setCPUActive();
 	    	System.out.println("CPU has chosen " + pokemonList.get(1).getName());
+	    	activeList.add(pokemonList.get(1));
 	    	pokemonList.remove(1);
 	    }
 	    else if (cpuChoiceIndex == 2) {
 	    	pokemonList.get(2).setCPUActive();
 	    	System.out.println("CPU has chosen " + pokemonList.get(2).getName());
+	    	activeList.add(pokemonList.get(2));
 	    	pokemonList.remove(2);
 	    }
 	    else if (cpuChoiceIndex == 3) {
 	    	pokemonList.get(3).setCPUActive();
 	    	System.out.println("CPU has chosen " + pokemonList.get(3).getName());
+	    	activeList.add(pokemonList.get(3));
 	    	pokemonList.remove(3);
 	    }
 	}

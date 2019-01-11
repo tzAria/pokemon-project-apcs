@@ -53,7 +53,11 @@ public class Pokemon {
 		return hpAfter;
 	}
 	public int takeDamage(int damage, int hp) {
-		return hp - damage;
+		int hpAfter = hp - damage;
+		if (hpAfter < 0) {
+			hpAfter = 0;
+		}
+		return hpAfter;
 	}
 	public String useMove(String name) {
 		if (name.equals("Swinub")) {
