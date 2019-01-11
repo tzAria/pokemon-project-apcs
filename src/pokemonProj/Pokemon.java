@@ -1,15 +1,15 @@
 package pokemonProj;
 import java.util.*;
 public class Pokemon {
-	private int id;
-	private String name;
-	private int hp;
-	private int attack;
-	private int def;
-	private int spAtt;
-	private int spDef;
-	private int speed;
-	private int totalStats;
+	public int id;
+	public String name;
+	public int hp;
+	public int attack;
+	public int def;
+	public int spAtt;
+	public int spDef;
+	public int speed;
+	public int totalStats;
 	public boolean isFaint;
 	public boolean isActive;
 	public boolean isCPU;

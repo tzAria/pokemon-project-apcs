@@ -11,6 +11,7 @@ public class Main {
 		Pokemon pansear = new Pokemon(513, "Pansear", 50, 53, 48, 53, 48, 64, 316, false, false, false);
 		ArrayList<Pokemon> pokemonList = new ArrayList<Pokemon>();
 		ArrayList<Pokemon> activeList = new ArrayList<Pokemon>();
+		ArrayList<Pokemon> faintList = new ArrayList<Pokemon>();
 		pokemonList.add(swinub);
 		pokemonList.add(cleffa);
 		pokemonList.add(azurill);
@@ -45,7 +46,7 @@ public class Main {
 			activeList.add(pansear);
 			pansear.setActive();
 		}
-		int range = (4);     
+		int range = 4;     
 	    int cpuChoiceIndex = (int)(Math.random() * range) + 0;
 	    System.out.println(cpuChoiceIndex);
 	    if(cpuChoiceIndex == 0) {
@@ -73,4 +74,44 @@ public class Main {
 	    	pokemonList.remove(3);
 	    }
 	}
+	public static void battle(ArrayList<Pokemon> activeList) {
+		while(activeList.size() == 2) {
+		int range = 11;
+		int specialNumber = (int)(Math.random() * range) + 0;
+		System.out.println(specialNumber);
+		if (specialNumber == 10) {
+			
+		}
+		else {
+			if (activeList.get(0).speed > activeList.get(1).speed) {
+				int damageDone = activeList.get(0).giveDamage(activeList.get(0).attack, activeList.get(0).def, activeList.get(0).totalStats);
+				activeList.get(1).takeDamage(damageDone, activeList.get(1).hp);
+				if (activeList.get(1).hp == 0) {
+					activeList.remove(1);
+				}
+				else {
+					int damageDone2 = activeList.get(1).giveDamage(activeList.get(1).attack, activeList.get(1).def, activeList.get(1).totalStats);
+					activeList.get(0).takeDamage(damageDone2, activeList.get(1).hp);
+					if (activeList.get(0).hp == 0) {
+						activeList.remove(0);
+					}
+				}
+			}
+			else if ( activeList.get(0).speed < activeList.get(1).speed) {
+				int damageDone2 = activeList.get(1).giveDamage(activeList.get(1).attack, activeList.get(1).def, activeList.get(1).totalStats);
+				activeList.get(0).takeDamage(damageDone2, activeList.get(1).hp);
+				if (activeList.get(0).hp == 0) {
+					activeList.remove(0);
+			}
+				else {
+					int damageDone = activeList.get(0).giveDamage(activeList.get(0).attack, activeList.get(0).def, activeList.get(0).totalStats);
+					activeList.get(1).takeDamage(damageDone, activeList.get(1).hp);
+					if (activeList.get(1).hp == 0) {
+						activeList.remove(1);
+					}
+				}
+		}
+	}
+}
+}
 }
