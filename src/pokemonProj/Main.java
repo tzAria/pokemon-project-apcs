@@ -149,9 +149,74 @@ public class Main {
 		    	pokemonList.remove(2);
 		    }
 		    battle(activeList);
-		    System.out.println(pokemonList.size());
 	    }
-	}
+		    if(activeList.get(0).isCPU) {
+		    	System.out.println("Your Pokemon fainted! Pick another! Your choices are (case sensitive!): " + pokemonList.get(0).name + ", " + pokemonList.get(1).name + ", " + pokemonList.get(2).name);
+		    	Scanner console3 = new Scanner(System.in);
+		    	String playerPokemonChoice3 = console.nextLine();
+		    	if (playerPokemonChoice3.equals(pokemonList.get(0).getName())) {
+		    		activeList.add(pokemonList.get(0));
+		    		pokemonList.remove(0);
+		    	}
+		    	else if (playerPokemonChoice3.equals(pokemonList.get(1).getName())) {
+		    		activeList.add(pokemonList.get(1));
+		    		pokemonList.remove(1);
+		    	}
+		    	battle(activeList);
+		    }
+		    else if(activeList.get(0).isActive) {
+		    	System.out.println("\r\n" + 
+		    			"   _____  _____   _    _    ______        _____  _   _  _______  ______  _____  \r\n" + 
+		    			"  / ____||  __ \\ | |  | |  |  ____|/\\    |_   _|| \\ | ||__   __||  ____||  __ \\ \r\n" + 
+		    			" | |     | |__) || |  | |  | |__  /  \\     | |  |  \\| |   | |   | |__   | |  | |\r\n" + 
+		    			" | |     |  ___/ | |  | |  |  __|/ /\\ \\    | |  | . ` |   | |   |  __|  | |  | |\r\n" + 
+		    			" | |____ | |     | |__| |  | |  / ____ \\  _| |_ | |\\  |   | |   | |____ | |__| |\r\n" + 
+		    			"  \\_____||_|      \\____/   |_| /_/    \\_\\|_____||_| \\_|   |_|   |______||_____/ \r\n" + 
+		    			"                                                                                \r\n" + 
+		    			"                                                                                \r\n" + 
+		    			"");
+		    	range = 2;     
+			    cpuChoiceIndex = (int)(Math.random() * range) + 0;
+			    if(cpuChoiceIndex == 0) {
+			    	pokemonList.get(0).setCPUActive();
+			    	System.out.println("CPU has chosen " + pokemonList.get(0).getName());
+			    	activeList.add(pokemonList.get(0));
+			    	pokemonList.remove(0);
+			    }
+			    else if(cpuChoiceIndex == 1) {
+			    	pokemonList.get(1).setCPUActive();
+			    	System.out.println("CPU has chosen " + pokemonList.get(1).getName());
+			    	activeList.add(pokemonList.get(1));
+			    	pokemonList.remove(1);
+			    }
+			    battle(activeList);
+		    }
+		    if(activeList.get(0).isCPU) {
+		    	System.out.println("Your Pokemon fainted! You sent out " + pokemonList.get(0).getName() + "!");
+		    	activeList.add(pokemonList.get(0));
+	    		pokemonList.remove(0);
+		    }
+		    else if(activeList.get(0).isActive) {
+		    	System.out.println("\r\n" + 
+		    			"   _____  _____   _    _    ______        _____  _   _  _______  ______  _____  \r\n" + 
+		    			"  / ____||  __ \\ | |  | |  |  ____|/\\    |_   _|| \\ | ||__   __||  ____||  __ \\ \r\n" + 
+		    			" | |     | |__) || |  | |  | |__  /  \\     | |  |  \\| |   | |   | |__   | |  | |\r\n" + 
+		    			" | |     |  ___/ | |  | |  |  __|/ /\\ \\    | |  | . ` |   | |   |  __|  | |  | |\r\n" + 
+		    			" | |____ | |     | |__| |  | |  / ____ \\  _| |_ | |\\  |   | |   | |____ | |__| |\r\n" + 
+		    			"  \\_____||_|      \\____/   |_| /_/    \\_\\|_____||_| \\_|   |_|   |______||_____/ \r\n" + 
+		    			"                                                                                \r\n" + 
+		    			"                                                                                \r\n" + 
+		    			"");
+		    	pokemonList.get(0).setCPUActive();
+		    	System.out.println("CPU has chosen " + pokemonList.get(0).getName());
+		    	activeList.add(pokemonList.get(0));
+		    	pokemonList.remove(0);
+		    }
+		    battle(activeList);
+		    mediaPlayer.stop();
+		    System.exit(1);
+	    }
+	
 	public static void battle(ArrayList<Pokemon> activeList) {
 		while(activeList.size() == 2) {
 			int range = 11;
