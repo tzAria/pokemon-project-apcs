@@ -73,45 +73,53 @@ public class Main {
 	    	activeList.add(pokemonList.get(3));
 	    	pokemonList.remove(3);
 	    }
+	    battle(activeList);
 	}
 	public static void battle(ArrayList<Pokemon> activeList) {
 		while(activeList.size() == 2) {
-		int range = 11;
-		int specialNumber = (int)(Math.random() * range) + 0;
-		System.out.println(specialNumber);
-		if (specialNumber == 10) {
-			
-		}
-		else {
-			if (activeList.get(0).speed > activeList.get(1).speed) {
-				int damageDone = activeList.get(0).giveDamage(activeList.get(0).attack, activeList.get(0).def, activeList.get(0).totalStats);
-				activeList.get(1).takeDamage(damageDone, activeList.get(1).hp);
-				if (activeList.get(1).hp == 0) {
-					activeList.remove(1);
-				}
-				else {
-					int damageDone2 = activeList.get(1).giveDamage(activeList.get(1).attack, activeList.get(1).def, activeList.get(1).totalStats);
-					activeList.get(0).takeDamage(damageDone2, activeList.get(1).hp);
-					if (activeList.get(0).hp == 0) {
-						activeList.remove(0);
-					}
-				}
+			int range = 11;
+			int specialNumber = (int)(Math.random() * range) + 0;
+			if (specialNumber == 10) {
+				
 			}
-			else if ( activeList.get(0).speed < activeList.get(1).speed) {
-				int damageDone2 = activeList.get(1).giveDamage(activeList.get(1).attack, activeList.get(1).def, activeList.get(1).totalStats);
-				activeList.get(0).takeDamage(damageDone2, activeList.get(1).hp);
-				if (activeList.get(0).hp == 0) {
-					activeList.remove(0);
-			}
-				else {
+			else {
+				if (activeList.get(0).speed > activeList.get(1).speed) {
 					int damageDone = activeList.get(0).giveDamage(activeList.get(0).attack, activeList.get(0).def, activeList.get(0).totalStats);
-					activeList.get(1).takeDamage(damageDone, activeList.get(1).hp);
+					activeList.get(1).hp = activeList.get(1).takeDamage(damageDone, activeList.get(1).hp);
+					System.out.println(activeList.get(0).getName() + " used " + activeList.get(0).useMove(activeList.get(0).getName()));
 					if (activeList.get(1).hp == 0) {
+						System.out.println(activeList.get(1).getName() + " fainted!");
 						activeList.remove(1);
 					}
+					else {
+						int damageDone2 = activeList.get(1).giveDamage(activeList.get(1).attack, activeList.get(1).def, activeList.get(1).totalStats);
+						activeList.get(0).hp = activeList.get(0).takeDamage(damageDone2, activeList.get(1).hp);
+						System.out.println(activeList.get(1).getName() + " used " + activeList.get(1).useMove(activeList.get(1).getName()));
+						if (activeList.get(0).hp == 0) {
+							System.out.println(activeList.get(0).getName() + " fainted!");
+							activeList.remove(0);
+						}
+					}
 				}
+				else if ( activeList.get(0).speed < activeList.get(1).speed) {
+					int damageDone2 = activeList.get(1).giveDamage(activeList.get(1).attack, activeList.get(1).def, activeList.get(1).totalStats);
+					activeList.get(0).hp = activeList.get(0).takeDamage(damageDone2, activeList.get(1).hp);
+					System.out.println(activeList.get(1).getName() + " used " + activeList.get(1).useMove(activeList.get(1).getName()));
+					if (activeList.get(0).hp == 0) {
+						System.out.println(activeList.get(0).getName() + " fainted!");
+						activeList.remove(0);
+				}
+					else {
+						int damageDone = activeList.get(0).giveDamage(activeList.get(0).attack, activeList.get(0).def, activeList.get(0).totalStats);
+						activeList.get(1).hp = activeList.get(1).takeDamage(damageDone, activeList.get(1).hp);
+						System.out.println(activeList.get(0).getName() + " used " + activeList.get(0).useMove(activeList.get(0).getName()));
+						if (activeList.get(1).hp == 0) {
+							System.out.println(activeList.get(1).getName() + " fainted!");
+							activeList.remove(1);
+						}
+					}
+				}
+			}
 		}
 	}
-}
-}
 }
