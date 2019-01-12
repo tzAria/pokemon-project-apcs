@@ -11,51 +11,63 @@ public class Main {
 		Pokemon pansear = new Pokemon(513, "Pansear", 50, 53, 48, 53, 48, 64, 316, false, false, false);
 		ArrayList<Pokemon> pokemonList = new ArrayList<Pokemon>();
 		ArrayList<Pokemon> activeList = new ArrayList<Pokemon>();
-		ArrayList<Pokemon> faintList = new ArrayList<Pokemon>();
 		pokemonList.add(swinub);
 		pokemonList.add(cleffa);
 		pokemonList.add(azurill);
 		pokemonList.add(pineco);
 		pokemonList.add(pansear);
+		System.out.println("                                  ,'\\\r\n" + 
+				"    _.----.        ____         ,'  _\\   ___    ___     ____\r\n" + 
+				"_,-'       `.     |    |  /`.   \\,-'    |   \\  /   |   |    \\  |`.\r\n" + 
+				"\\      __    \\    '-.  | /   `.  ___    |    \\/    |   '-.   \\ |  |\r\n" + 
+				" \\.    \\ \\   |  __  |  |/    ,','_  `.  |          | __  |    \\|  |\r\n" + 
+				"   \\    \\/   /,' _`.|      ,' / / / /   |          ,' _`.|     |  |\r\n" + 
+				"    \\     ,-'/  /   \\    ,'   | \\/ / ,`.|         /  /   \\  |     |\r\n" + 
+				"     \\    \\ |   \\_/  |   `-.  \\    `'  /|  |    ||   \\_/  | |\\    |\r\n" + 
+				"      \\    \\ \\      /       `-.`.___,-' |  |\\  /| \\      /  | |   |\r\n" + 
+				"       \\    \\ `.__,'|  |`-._    `|      |__| \\/ |  `.__,'|  | |   |\r\n" + 
+				"        \\_.-'       |__|    `-._ |              '-.|     '-.| |   |\r\n" + 
+				"                                `'                            '-._|\r\n" +
+				"                              APCS VERSION                               ");
+		System.out.println();
 		System.out.println("Battle start! For extra atmosphere please open this link in the background: https://www.youtube.com/watch?v=bIlomr9Guas");
 		Scanner console = new Scanner(System.in);
-		System.out.println("Which pokemon do you choose? Your choices are: "  + swinub.getName() + ", " + cleffa.getName() + ", " + azurill.getName() + ", " + pineco.getName() + ", " + pansear.getName());
+		System.out.println("Which pokemon do you choose? Your choices are (case sensitive!): "  + swinub.getName() + ", " + cleffa.getName() + ", " + azurill.getName() + ", " + pineco.getName() + ", " + pansear.getName());
 		String playerPokemonChoice = console.nextLine();
-		if(playerPokemonChoice.equals("Swinub") || playerPokemonChoice.equals("swinub")) {
+		if(playerPokemonChoice.equals("Swinub")) {
 			pokemonList.remove(swinub);
 			activeList.add(swinub);
 			swinub.setActive();
 		}
-		else if(playerPokemonChoice.equals("Cleffa") || playerPokemonChoice.equals("cleffa")) {
+		else if(playerPokemonChoice.equals("Cleffa")) {
 			pokemonList.remove(cleffa);
 			activeList.add(cleffa);
 			cleffa.setActive();
 		}
-		else if(playerPokemonChoice.equals("Azurill") || playerPokemonChoice.equals("azurill")) {
+		else if(playerPokemonChoice.equals("Azurill")) {
 			pokemonList.remove(azurill);
 			activeList.add(azurill);
 			azurill.setActive();
 		}
-		else if(playerPokemonChoice.equals("Pineco") || playerPokemonChoice.equals("pineco")) {
+		else if(playerPokemonChoice.equals("Pineco")) {
 			pokemonList.remove(pineco);
 			activeList.add(pineco);
 			pineco.setActive();
 		}
-		else if(playerPokemonChoice.equals("Pansear") || playerPokemonChoice.equals("pansear")) {
+		else if(playerPokemonChoice.equals("Pansear")) {
 			pokemonList.remove(pansear);
 			activeList.add(pansear);
 			pansear.setActive();
 		}
 		int range = 4;     
 	    int cpuChoiceIndex = (int)(Math.random() * range) + 0;
-	    System.out.println(cpuChoiceIndex);
 	    if(cpuChoiceIndex == 0) {
 	    	pokemonList.get(0).setCPUActive();
 	    	System.out.println("CPU has chosen " + pokemonList.get(0).getName());
 	    	activeList.add(pokemonList.get(0));
 	    	pokemonList.remove(0);
 	    }
-	    else if(cpuChoiceIndex == 1) {
+	    else if (cpuChoiceIndex == 1) {
 	    	pokemonList.get(1).setCPUActive();
 	    	System.out.println("CPU has chosen " + pokemonList.get(1).getName());
 	    	activeList.add(pokemonList.get(1));
@@ -74,6 +86,57 @@ public class Main {
 	    	pokemonList.remove(3);
 	    }
 	    battle(activeList);
+	    if(activeList.get(0).isCPU) {
+	    	System.out.println("Your Pokemon fainted! Pick another! Your choices are (case sensitive!): " + pokemonList.get(0).name + ", " + pokemonList.get(1).name + ", " + pokemonList.get(2).name);
+	    	Scanner console2 = new Scanner(System.in);
+	    	String playerPokemonChoice2 = console.nextLine();
+	    	if (playerPokemonChoice2.equals(pokemonList.get(0).getName())) {
+	    		activeList.add(pokemonList.get(0));
+	    		pokemonList.remove(0);
+	    	}
+	    	else if (playerPokemonChoice2.equals(pokemonList.get(1).getName())) {
+	    		activeList.add(pokemonList.get(1));
+	    		pokemonList.remove(1);
+	    	}
+	    	else if (playerPokemonChoice2.equals(pokemonList.get(2).getName())) {
+	    		activeList.add(pokemonList.get(2));
+	    		pokemonList.remove(2);
+	    	}
+	    	battle(activeList);
+	    }
+	    else {
+	    	System.out.println("\r\n" + 
+	    			"   _____  _____   _    _    ______        _____  _   _  _______  ______  _____  \r\n" + 
+	    			"  / ____||  __ \\ | |  | |  |  ____|/\\    |_   _|| \\ | ||__   __||  ____||  __ \\ \r\n" + 
+	    			" | |     | |__) || |  | |  | |__  /  \\     | |  |  \\| |   | |   | |__   | |  | |\r\n" + 
+	    			" | |     |  ___/ | |  | |  |  __|/ /\\ \\    | |  | . ` |   | |   |  __|  | |  | |\r\n" + 
+	    			" | |____ | |     | |__| |  | |  / ____ \\  _| |_ | |\\  |   | |   | |____ | |__| |\r\n" + 
+	    			"  \\_____||_|      \\____/   |_| /_/    \\_\\|_____||_| \\_|   |_|   |______||_____/ \r\n" + 
+	    			"                                                                                \r\n" + 
+	    			"                                                                                \r\n" + 
+	    			"");
+	    	range = 3;     
+		    cpuChoiceIndex = (int)(Math.random() * range) + 0;
+		    if(cpuChoiceIndex == 0) {
+		    	pokemonList.get(0).setCPUActive();
+		    	System.out.println("CPU has chosen " + pokemonList.get(0).getName());
+		    	activeList.add(pokemonList.get(0));
+		    	pokemonList.remove(0);
+		    }
+		    else if(cpuChoiceIndex == 1) {
+		    	pokemonList.get(1).setCPUActive();
+		    	System.out.println("CPU has chosen " + pokemonList.get(1).getName());
+		    	activeList.add(pokemonList.get(1));
+		    	pokemonList.remove(1);
+		    }
+		    else if (cpuChoiceIndex == 2) {
+		    	pokemonList.get(2).setCPUActive();
+		    	System.out.println("CPU has chosen " + pokemonList.get(2).getName());
+		    	activeList.add(pokemonList.get(2));
+		    	pokemonList.remove(2);
+		    }
+		    battle(activeList);
+	    }
 	}
 	public static void battle(ArrayList<Pokemon> activeList) {
 		while(activeList.size() == 2) {
@@ -86,7 +149,7 @@ public class Main {
 				if (activeList.get(0).speed > activeList.get(1).speed) {
 					int damageDone = activeList.get(0).giveDamage(activeList.get(0).attack, activeList.get(0).def, activeList.get(0).totalStats);
 					activeList.get(1).hp = activeList.get(1).takeDamage(damageDone, activeList.get(1).hp);
-					System.out.println(activeList.get(0).getName() + " used " + activeList.get(0).useMove(activeList.get(0).getName()));
+					System.out.println(activeList.get(0).getName() + " used " + activeList.get(0).useMove(activeList.get(0).getName()) + ", dealing " + damageDone + " damage.");
 					if (activeList.get(1).hp == 0) {
 						System.out.println(activeList.get(1).getName() + " fainted!");
 						activeList.remove(1);
@@ -94,17 +157,17 @@ public class Main {
 					else {
 						int damageDone2 = activeList.get(1).giveDamage(activeList.get(1).attack, activeList.get(1).def, activeList.get(1).totalStats);
 						activeList.get(0).hp = activeList.get(0).takeDamage(damageDone2, activeList.get(1).hp);
-						System.out.println(activeList.get(1).getName() + " used " + activeList.get(1).useMove(activeList.get(1).getName()));
+						System.out.println(activeList.get(1).getName() + " used " + activeList.get(1).useMove(activeList.get(1).getName()) + ", dealing " + damageDone2 + " damage.");
 						if (activeList.get(0).hp == 0) {
 							System.out.println(activeList.get(0).getName() + " fainted!");
 							activeList.remove(0);
 						}
 					}
 				}
-				else if ( activeList.get(0).speed < activeList.get(1).speed) {
+				else if (activeList.get(0).speed < activeList.get(1).speed) {
 					int damageDone2 = activeList.get(1).giveDamage(activeList.get(1).attack, activeList.get(1).def, activeList.get(1).totalStats);
 					activeList.get(0).hp = activeList.get(0).takeDamage(damageDone2, activeList.get(1).hp);
-					System.out.println(activeList.get(1).getName() + " used " + activeList.get(1).useMove(activeList.get(1).getName()));
+					System.out.println(activeList.get(1).getName() + " used " + activeList.get(1).useMove(activeList.get(1).getName()) + ", dealing " + damageDone2 + " damage.");
 					if (activeList.get(0).hp == 0) {
 						System.out.println(activeList.get(0).getName() + " fainted!");
 						activeList.remove(0);
@@ -112,10 +175,50 @@ public class Main {
 					else {
 						int damageDone = activeList.get(0).giveDamage(activeList.get(0).attack, activeList.get(0).def, activeList.get(0).totalStats);
 						activeList.get(1).hp = activeList.get(1).takeDamage(damageDone, activeList.get(1).hp);
-						System.out.println(activeList.get(0).getName() + " used " + activeList.get(0).useMove(activeList.get(0).getName()));
+						System.out.println(activeList.get(0).getName() + " used " + activeList.get(0).useMove(activeList.get(0).getName()) + ", dealing " + damageDone + " damage.");
 						if (activeList.get(1).hp == 0) {
 							System.out.println(activeList.get(1).getName() + " fainted!");
 							activeList.remove(1);
+						}
+					}
+				}
+				else if (activeList.get(0).speed == activeList.get(1).speed) {
+					range = 2;
+					int speedTie = (int)(Math.random() * range) + 0;
+					if(speedTie == 0) {
+						int damageDone = activeList.get(0).giveDamage(activeList.get(0).attack, activeList.get(0).def, activeList.get(0).totalStats);
+						activeList.get(1).hp = activeList.get(1).takeDamage(damageDone, activeList.get(1).hp);
+						System.out.println(activeList.get(0).getName() + " used " + activeList.get(0).useMove(activeList.get(0).getName()) + ", dealing " + damageDone + " damage.");
+						if (activeList.get(1).hp == 0) {
+							System.out.println(activeList.get(1).getName() + " fainted!");
+							activeList.remove(1);
+						}
+						else {
+							int damageDone2 = activeList.get(1).giveDamage(activeList.get(1).attack, activeList.get(1).def, activeList.get(1).totalStats);
+							activeList.get(0).hp = activeList.get(0).takeDamage(damageDone2, activeList.get(1).hp);
+							System.out.println(activeList.get(1).getName() + " used " + activeList.get(1).useMove(activeList.get(1).getName()) + ", dealing " + damageDone2 + " damage.");
+							if (activeList.get(0).hp == 0) {
+								System.out.println(activeList.get(0).getName() + " fainted!");
+								activeList.remove(0);
+							}
+						}
+					}
+					else if(speedTie == 1) {
+						int damageDone2 = activeList.get(1).giveDamage(activeList.get(1).attack, activeList.get(1).def, activeList.get(1).totalStats);
+						activeList.get(0).hp = activeList.get(0).takeDamage(damageDone2, activeList.get(1).hp);
+						System.out.println(activeList.get(1).getName() + " used " + activeList.get(1).useMove(activeList.get(1).getName()) + ", dealing " + damageDone2 + " damage.");
+						if (activeList.get(0).hp == 0) {
+							System.out.println(activeList.get(0).getName() + " fainted!");
+							activeList.remove(0);
+					}
+						else {
+							int damageDone = activeList.get(0).giveDamage(activeList.get(0).attack, activeList.get(0).def, activeList.get(0).totalStats);
+							activeList.get(1).hp = activeList.get(1).takeDamage(damageDone, activeList.get(1).hp);
+							System.out.println(activeList.get(0).getName() + " used " + activeList.get(0).useMove(activeList.get(0).getName()) + ", dealing " + damageDone + " damage.");
+							if (activeList.get(1).hp == 0) {
+								System.out.println(activeList.get(1).getName() + " fainted!");
+								activeList.remove(1);
+							}
 						}
 					}
 				}
