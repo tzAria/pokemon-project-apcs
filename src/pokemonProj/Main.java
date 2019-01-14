@@ -9,7 +9,7 @@ import javafx.scene.media.MediaPlayer;
 import javafx.embed.swing.JFXPanel;
 public class Main {
 
-	
+
 	public static void main(String[] args) throws InterruptedException {
 		final JFXPanel fxPanel = new JFXPanel();
 		String mainTheme = "mainTheme.mp3";
@@ -22,7 +22,7 @@ public class Main {
 		Media hit3 = new Media(new File(winTheme).toURI().toString());
 		MediaPlayer mediaPlayer3 = new MediaPlayer(hit3);
 		mediaPlayer2.play();
-		
+
 		//create all pokemon: swinub, cleffa, azurill, pineco, pansear
 		Pokemon swinub = new Pokemon(220, "Swinub", 50, 50, 40, 30, 30, 50, 250, false, false, false);
 		Pokemon cleffa = new Pokemon(173, "Cleffa", 50, 25, 28, 45, 55, 15, 218, false, false, false);
@@ -36,21 +36,21 @@ public class Main {
 		pokemonList.add(azurill);
 		pokemonList.add(pineco);
 		pokemonList.add(pansear);
-		System.out.println("                                  ,'\\\r\n" + 
-				"    _.----.        ____         ,'  _\\   ___    ___     ____\r\n" + 
-				"_,-'       `.     |    |  /`.   \\,-'    |   \\  /   |   |    \\  |`.\r\n" + 
-				"\\      __    \\    '-.  | /   `.  ___    |    \\/    |   '-.   \\ |  |\r\n" + 
-				" \\.    \\ \\   |  __  |  |/    ,','_  `.  |          | __  |    \\|  |\r\n" + 
-				"   \\    \\/   /,' _`.|      ,' / / / /   |          ,' _`.|     |  |\r\n" + 
-				"    \\     ,-'/  /   \\    ,'   | \\/ / ,`.|         /  /   \\  |     |\r\n" + 
-				"     \\    \\ |   \\_/  |   `-.  \\    `'  /|  |    ||   \\_/  | |\\    |\r\n" + 
-				"      \\    \\ \\      /       `-.`.___,-' |  |\\  /| \\      /  | |   |\r\n" + 
-				"       \\    \\ `.__,'|  |`-._    `|      |__| \\/ |  `.__,'|  | |   |\r\n" + 
-				"        \\_.-'       |__|    `-._ |              '-.|     '-.| |   |\r\n" + 
+		System.out.println("                                  ,'\\\r\n" +
+				"    _.----.        ____         ,'  _\\   ___    ___     ____\r\n" +
+				"_,-'       `.     |    |  /`.   \\,-'    |   \\  /   |   |    \\  |`.\r\n" +
+				"\\      __    \\    '-.  | /   `.  ___    |    \\/    |   '-.   \\ |  |\r\n" +
+				" \\.    \\ \\   |  __  |  |/    ,','_  `.  |          | __  |    \\|  |\r\n" +
+				"   \\    \\/   /,' _`.|      ,' / / / /   |          ,' _`.|     |  |\r\n" +
+				"    \\     ,-'/  /   \\    ,'   | \\/ / ,`.|         /  /   \\  |     |\r\n" +
+				"     \\    \\ |   \\_/  |   `-.  \\    `'  /|  |    ||   \\_/  | |\\    |\r\n" +
+				"      \\    \\ \\      /       `-.`.___,-' |  |\\  /| \\      /  | |   |\r\n" +
+				"       \\    \\ `.__,'|  |`-._    `|      |__| \\/ |  `.__,'|  | |   |\r\n" +
+				"        \\_.-'       |__|    `-._ |              '-.|     '-.| |   |\r\n" +
 				"                                `'                            '-._|\r\n" +
 				"                              APCS VERSION                               ");
 		System.out.println();
-		System.out.println("Battle start! For extra atmosphere please open this link in the background: https://www.youtube.com/watch?v=bIlomr9Guas");
+		System.out.println("Battle start!");
 		Scanner console = new Scanner(System.in);
 		System.out.println("Which pokemon do you choose? Your choices are (case sensitive!): "  + swinub.getName() + ", " + cleffa.getName() + ", " + azurill.getName() + ", " + pineco.getName() + ", " + pansear.getName());
 		String playerPokemonChoice = console.nextLine();
@@ -81,7 +81,7 @@ public class Main {
 		}
 		mediaPlayer2.stop();
 		mediaPlayer.play();
-		int range = 4;     
+		int range = 4;
 	    int cpuChoiceIndex = (int)(Math.random() * range) + 0;
 	    if(cpuChoiceIndex == 0) {
 	    	pokemonList.get(0).setCPUActive();
@@ -136,17 +136,17 @@ public class Main {
 	    	activeList.get(0).hp += 2;
 	    	activeList.get(0).def += 2;
 	    	activeList.get(0).attack += 2;
-	    	System.out.println("\r\n" + 
-	    			"   _____  _____   _    _    ______        _____  _   _  _______  ______  _____  \r\n" + 
-	    			"  / ____||  __ \\ | |  | |  |  ____|/\\    |_   _|| \\ | ||__   __||  ____||  __ \\ \r\n" + 
-	    			" | |     | |__) || |  | |  | |__  /  \\     | |  |  \\| |   | |   | |__   | |  | |\r\n" + 
-	    			" | |     |  ___/ | |  | |  |  __|/ /\\ \\    | |  | . ` |   | |   |  __|  | |  | |\r\n" + 
-	    			" | |____ | |     | |__| |  | |  / ____ \\  _| |_ | |\\  |   | |   | |____ | |__| |\r\n" + 
-	    			"  \\_____||_|      \\____/   |_| /_/    \\_\\|_____||_| \\_|   |_|   |______||_____/ \r\n" + 
-	    			"                                                                                \r\n" + 
-	    			"                                                                                \r\n" + 
+	    	System.out.println("\r\n" +
+	    			"   _____  _____   _    _    ______        _____  _   _  _______  ______  _____  \r\n" +
+	    			"  / ____||  __ \\ | |  | |  |  ____|/\\    |_   _|| \\ | ||__   __||  ____||  __ \\ \r\n" +
+	    			" | |     | |__) || |  | |  | |__  /  \\     | |  |  \\| |   | |   | |__   | |  | |\r\n" +
+	    			" | |     |  ___/ | |  | |  |  __|/ /\\ \\    | |  | . ` |   | |   |  __|  | |  | |\r\n" +
+	    			" | |____ | |     | |__| |  | |  / ____ \\  _| |_ | |\\  |   | |   | |____ | |__| |\r\n" +
+	    			"  \\_____||_|      \\____/   |_| /_/    \\_\\|_____||_| \\_|   |_|   |______||_____/ \r\n" +
+	    			"                                                                                \r\n" +
+	    			"                                                                                \r\n" +
 	    			"");
-	    	range = 3;     
+	    	range = 3;
 		    cpuChoiceIndex = (int)(Math.random() * range) + 0;
 		    if(cpuChoiceIndex == 0) {
 		    	pokemonList.get(0).setCPUActive();
@@ -185,17 +185,17 @@ public class Main {
 		    	battle(activeList);
 		    }
 		    else if(activeList.get(0).isActive) {
-		    	System.out.println("\r\n" + 
-		    			"   _____  _____   _    _    ______        _____  _   _  _______  ______  _____  \r\n" + 
-		    			"  / ____||  __ \\ | |  | |  |  ____|/\\    |_   _|| \\ | ||__   __||  ____||  __ \\ \r\n" + 
-		    			" | |     | |__) || |  | |  | |__  /  \\     | |  |  \\| |   | |   | |__   | |  | |\r\n" + 
-		    			" | |     |  ___/ | |  | |  |  __|/ /\\ \\    | |  | . ` |   | |   |  __|  | |  | |\r\n" + 
-		    			" | |____ | |     | |__| |  | |  / ____ \\  _| |_ | |\\  |   | |   | |____ | |__| |\r\n" + 
-		    			"  \\_____||_|      \\____/   |_| /_/    \\_\\|_____||_| \\_|   |_|   |______||_____/ \r\n" + 
-		    			"                                                                                \r\n" + 
-		    			"                                                                                \r\n" + 
+		    	System.out.println("\r\n" +
+		    			"   _____  _____   _    _    ______        _____  _   _  _______  ______  _____  \r\n" +
+		    			"  / ____||  __ \\ | |  | |  |  ____|/\\    |_   _|| \\ | ||__   __||  ____||  __ \\ \r\n" +
+		    			" | |     | |__) || |  | |  | |__  /  \\     | |  |  \\| |   | |   | |__   | |  | |\r\n" +
+		    			" | |     |  ___/ | |  | |  |  __|/ /\\ \\    | |  | . ` |   | |   |  __|  | |  | |\r\n" +
+		    			" | |____ | |     | |__| |  | |  / ____ \\  _| |_ | |\\  |   | |   | |____ | |__| |\r\n" +
+		    			"  \\_____||_|      \\____/   |_| /_/    \\_\\|_____||_| \\_|   |_|   |______||_____/ \r\n" +
+		    			"                                                                                \r\n" +
+		    			"                                                                                \r\n" +
 		    			"");
-		    	range = 2;     
+		    	range = 2;
 			    cpuChoiceIndex = (int)(Math.random() * range) + 0;
 			    if(cpuChoiceIndex == 0) {
 			    	pokemonList.get(0).setCPUActive();
@@ -218,15 +218,15 @@ public class Main {
 	    		pokemonList.remove(0);
 		    }
 		    else if(activeList.get(0).isActive) {
-		    	System.out.println("\r\n" + 
-		    			"   _____  _____   _    _    ______        _____  _   _  _______  ______  _____  \r\n" + 
-		    			"  / ____||  __ \\ | |  | |  |  ____|/\\    |_   _|| \\ | ||__   __||  ____||  __ \\ \r\n" + 
-		    			" | |     | |__) || |  | |  | |__  /  \\     | |  |  \\| |   | |   | |__   | |  | |\r\n" + 
-		    			" | |     |  ___/ | |  | |  |  __|/ /\\ \\    | |  | . ` |   | |   |  __|  | |  | |\r\n" + 
-		    			" | |____ | |     | |__| |  | |  / ____ \\  _| |_ | |\\  |   | |   | |____ | |__| |\r\n" + 
-		    			"  \\_____||_|      \\____/   |_| /_/    \\_\\|_____||_| \\_|   |_|   |______||_____/ \r\n" + 
-		    			"                                                                                \r\n" + 
-		    			"                                                                                \r\n" + 
+		    	System.out.println("\r\n" +
+		    			"   _____  _____   _    _    ______        _____  _   _  _______  ______  _____  \r\n" +
+		    			"  / ____||  __ \\ | |  | |  |  ____|/\\    |_   _|| \\ | ||__   __||  ____||  __ \\ \r\n" +
+		    			" | |     | |__) || |  | |  | |__  /  \\     | |  |  \\| |   | |   | |__   | |  | |\r\n" +
+		    			" | |     |  ___/ | |  | |  |  __|/ /\\ \\    | |  | . ` |   | |   |  __|  | |  | |\r\n" +
+		    			" | |____ | |     | |__| |  | |  / ____ \\  _| |_ | |\\  |   | |   | |____ | |__| |\r\n" +
+		    			"  \\_____||_|      \\____/   |_| /_/    \\_\\|_____||_| \\_|   |_|   |______||_____/ \r\n" +
+		    			"                                                                                \r\n" +
+		    			"                                                                                \r\n" +
 		    			"");
 		    	pokemonList.get(0).setCPUActive();
 		    	System.out.println("CPU has chosen " + pokemonList.get(0).getName());
@@ -239,15 +239,25 @@ public class Main {
 		    	System.exit(1);
 		    }
 		    else if(activeList.get(0).isActive) {
+		    	System.out.println("\r\n" +
+		    			"   _____  _____   _    _    ______        _____  _   _  _______  ______  _____  \r\n" +
+		    			"  / ____||  __ \\ | |  | |  |  ____|/\\    |_   _|| \\ | ||__   __||  ____||  __ \\ \r\n" +
+		    			" | |     | |__) || |  | |  | |__  /  \\     | |  |  \\| |   | |   | |__   | |  | |\r\n" +
+		    			" | |     |  ___/ | |  | |  |  __|/ /\\ \\    | |  | . ` |   | |   |  __|  | |  | |\r\n" +
+		    			" | |____ | |     | |__| |  | |  / ____ \\  _| |_ | |\\  |   | |   | |____ | |__| |\r\n" +
+		    			"  \\_____||_|      \\____/   |_| /_/    \\_\\|_____||_| \\_|   |_|   |______||_____/ \r\n" +
+		    			"                                                                                \r\n" +
+		    			"                                                                                \r\n" +
+		    			"");
 		    	mediaPlayer.stop();
 		    	System.out.println("All enemy Pokemon have fainted! You win!");
 		    	mediaPlayer3.play();
 		    	TimeUnit.SECONDS.sleep(42);
 		    }
-		    
+
 		    System.exit(1);
 	    }
-	
+
 	public static void battle(ArrayList<Pokemon> activeList) {
 		while(activeList.size() == 2) {
 			int range = 11;
@@ -264,6 +274,7 @@ public class Main {
 						System.out.println(activeList.get(1).getName() + " fainted!");
 						activeList.remove(1);
 						activeList.get(0).hp += 4;
+						activeList.get(0).showStats();
 					}
 					else {
 						damageDone2 = activeList.get(1).giveSpecialDamage(activeList.get(1).attack, activeList.get(1).def, activeList.get(1).totalStats);
@@ -274,6 +285,7 @@ public class Main {
 							System.out.println(activeList.get(0).getName() + " fainted!");
 							activeList.remove(0);
 							activeList.get(0).hp += 4;
+							activeList.get(0).showStats();
 						}
 					}
 				}
@@ -286,6 +298,7 @@ public class Main {
 						System.out.println(activeList.get(0).getName() + " fainted!");
 						activeList.remove(0);
 						activeList.get(0).hp += 4;
+						activeList.get(0).showStats();
 				}
 					else {
 						damageDone = activeList.get(0).giveSpecialDamage(activeList.get(0).attack, activeList.get(0).def, activeList.get(0).totalStats);
@@ -296,6 +309,7 @@ public class Main {
 							System.out.println(activeList.get(1).getName() + " fainted!");
 							activeList.remove(1);
 							activeList.get(0).hp += 4;
+							activeList.get(0).showStats();
 						}
 					}
 				}
@@ -311,6 +325,7 @@ public class Main {
 							System.out.println(activeList.get(1).getName() + " fainted!");
 							activeList.remove(1);
 							activeList.get(0).hp += 4;
+							activeList.get(0).showStats();
 						}
 						else {
 							damageDone2 = activeList.get(1).giveSpecialDamage(activeList.get(1).attack, activeList.get(1).def, activeList.get(1).totalStats);
@@ -321,6 +336,7 @@ public class Main {
 								System.out.println(activeList.get(0).getName() + " fainted!");
 								activeList.remove(0);
 								activeList.get(0).hp += 4;
+								activeList.get(0).showStats();
 							}
 						}
 					}
@@ -333,6 +349,7 @@ public class Main {
 							System.out.println(activeList.get(0).getName() + " fainted!");
 							activeList.remove(0);
 							activeList.get(0).hp += 4;
+							activeList.get(0).showStats();
 					}
 						else {
 							damageDone = activeList.get(0).giveSpecialDamage(activeList.get(0).attack, activeList.get(0).def, activeList.get(0).totalStats);
@@ -343,10 +360,11 @@ public class Main {
 								System.out.println(activeList.get(1).getName() + " fainted!");
 								activeList.remove(1);
 								activeList.get(0).hp += 4;
+								activeList.get(0).showStats();
 							}
 						}
 					}
-				}		
+				}
 			} //special ends here
 			else {
 				if (activeList.get(0).speed > activeList.get(1).speed) {
@@ -359,6 +377,7 @@ public class Main {
 						activeList.get(0).hp += 2;
 						activeList.get(0).def += 2;
 						activeList.get(0).attack += 2;
+						activeList.get(0).showStats();
 					}
 					else {
 						damageDone2 = activeList.get(1).giveDamage(activeList.get(1).attack, activeList.get(1).def, activeList.get(1).totalStats);
@@ -370,6 +389,7 @@ public class Main {
 							activeList.get(0).hp += 2;
 							activeList.get(0).def += 2;
 							activeList.get(0).attack += 2;
+							activeList.get(0).showStats();
 						}
 					}
 				}
@@ -383,6 +403,7 @@ public class Main {
 						activeList.get(0).hp += 2;
 						activeList.get(0).def += 2;
 						activeList.get(0).attack += 2;
+						activeList.get(0).showStats();
 				}
 					else {
 						damageDone = activeList.get(0).giveDamage(activeList.get(0).attack, activeList.get(0).def, activeList.get(0).totalStats);
@@ -394,6 +415,7 @@ public class Main {
 							activeList.get(0).hp += 2;
 							activeList.get(0).def += 2;
 							activeList.get(0).attack += 2;
+							activeList.get(0).showStats();
 						}
 					}
 				}
@@ -410,6 +432,7 @@ public class Main {
 							activeList.get(0).hp += 2;
 							activeList.get(0).def += 2;
 							activeList.get(0).attack += 2;
+							activeList.get(0).showStats();
 						}
 						else {
 							damageDone2 = activeList.get(1).giveDamage(activeList.get(1).attack, activeList.get(1).def, activeList.get(1).totalStats);
@@ -421,6 +444,7 @@ public class Main {
 								activeList.get(0).hp += 2;
 								activeList.get(0).def += 2;
 								activeList.get(0).attack += 2;
+								activeList.get(0).showStats();
 							}
 						}
 					}
@@ -434,6 +458,7 @@ public class Main {
 							activeList.get(0).hp += 2;
 							activeList.get(0).def += 2;
 							activeList.get(0).attack += 2;
+							activeList.get(0).showStats();
 					}
 						else {
 							damageDone = activeList.get(0).giveDamage(activeList.get(0).attack, activeList.get(0).def, activeList.get(0).totalStats);
@@ -445,6 +470,7 @@ public class Main {
 								activeList.get(0).hp += 2;
 								activeList.get(0).def += 2;
 								activeList.get(0).attack += 2;
+								activeList.get(0).showStats();
 							}
 						}
 					}
@@ -457,7 +483,7 @@ public class Main {
 			activeList.get(0).spAtt -= 5;
 			activeList.get(1).spAtt -= 5;
 			activeList.get(0).spDef -= 5;
-			activeList.get(1).spDef -= 5;	
+			activeList.get(1).spDef -= 5;
 		}
 		else if(activeList.size() == 1) {
 			activeList.get(0).spAtt -= 5;

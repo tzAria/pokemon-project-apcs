@@ -88,4 +88,14 @@ public class Pokemon {
 	public void setInActive() {
 		isActive = false;
 	}
+	public void showStats() {
+		System.out.println(name + "'s stats: ");
+		System.out.println("\nHP: " + hp);
+		System.out.println("Attack: " + attack);
+		System.out.println("Defense: " + def);
+		System.out.println("Special Attack: " + spAtt);
+		System.out.println("Special Defense: " + spDef);
+		System.out.println("Speed: " + speed);
+		System.out.println("Total Stats: " + totalStats);
+	}
 }
