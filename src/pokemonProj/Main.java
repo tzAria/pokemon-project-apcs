@@ -1,3 +1,5 @@
+//Pokemon Final Project
+//by Teddy Zegers
 package pokemonProj;
 import java.io.File;
 import java.util.*;
@@ -51,6 +53,7 @@ public class Main {
 				"                              APCS VERSION                               ");
 		System.out.println();
 		System.out.println("Battle start!");
+		//ask for player input
 		Scanner console = new Scanner(System.in);
 		System.out.println("Which pokemon do you choose? Your choices are (case sensitive!): "  + swinub.getName() + ", " + cleffa.getName() + ", " + azurill.getName() + ", " + pineco.getName() + ", " + pansear.getName());
 		String playerPokemonChoice = console.nextLine();
@@ -81,6 +84,7 @@ public class Main {
 		}
 		mediaPlayer2.stop();
 		mediaPlayer.play();
+		//random CPU choice
 		int range = 4;
 	    int cpuChoiceIndex = (int)(Math.random() * range) + 0;
 	    if(cpuChoiceIndex == 0) {
@@ -108,6 +112,7 @@ public class Main {
 	    	pokemonList.remove(3);
 	    }
 	    battle(activeList);
+	    //after battle, check if CPU or user PKMN fainted
 	    if(activeList.get(0).isCPU) {
 	    	activeList.get(0).hp += 2;
 	    	activeList.get(0).def += 2;
@@ -270,7 +275,7 @@ public class Main {
 					activeList.get(1).takeDamage(damageDone, activeList.get(1).hp);
 					specialStatChange(activeList);
 					System.out.println(activeList.get(0).getName() + " used " + activeList.get(0).useMove(activeList.get(0).getName()) + ", dealing " + damageDone + " special damage.");
-					//TimeUnit.SECONDS.sleep(1);
+					TimeUnit.SECONDS.sleep(1);
 					if (activeList.get(1).hp <= 0) {
 						System.out.println(activeList.get(1).getName() + " fainted!");
 						activeList.remove(1);
@@ -282,7 +287,7 @@ public class Main {
 						activeList.get(0).takeDamage(damageDone2, activeList.get(0).hp);
 						specialStatChange(activeList);
 						System.out.println(activeList.get(1).getName() + " used " + activeList.get(1).useMove(activeList.get(1).getName()) + ", dealing " + damageDone2 + " special damage.");
-						//TimeUnit.SECONDS.sleep(1);
+						TimeUnit.SECONDS.sleep(1);
 						if (activeList.get(0).hp <= 0) {
 							System.out.println(activeList.get(0).getName() + " fainted!");
 							activeList.remove(0);
@@ -296,7 +301,7 @@ public class Main {
 					activeList.get(0).takeDamage(damageDone2, activeList.get(0).hp);
 					specialStatChange(activeList);
 					System.out.println(activeList.get(1).getName() + " used " + activeList.get(1).useMove(activeList.get(1).getName()) + ", dealing " + damageDone2 + " special damage.");
-					//TimeUnit.SECONDS.sleep(1);
+					TimeUnit.SECONDS.sleep(1);
 					if (activeList.get(0).hp <= 0) {
 						System.out.println(activeList.get(0).getName() + " fainted!");
 						activeList.remove(0);
@@ -308,7 +313,7 @@ public class Main {
 						activeList.get(1).takeDamage(damageDone, activeList.get(1).hp);
 						specialStatChange(activeList);
 						System.out.println(activeList.get(0).getName() + " used " + activeList.get(0).useMove(activeList.get(0).getName()) + ", dealing " + damageDone + " special damage.");
-						//TimeUnit.SECONDS.sleep(1);
+						TimeUnit.SECONDS.sleep(1);
 						if (activeList.get(1).hp <= 0) {
 							System.out.println(activeList.get(1).getName() + " fainted!");
 							activeList.remove(1);
@@ -325,7 +330,7 @@ public class Main {
 						activeList.get(1).takeDamage(damageDone, activeList.get(1).hp);
 						specialStatChange(activeList);
 						System.out.println(activeList.get(0).getName() + " used " + activeList.get(0).useMove(activeList.get(0).getName()) + ", dealing " + damageDone + " special damage.");
-						//TimeUnit.SECONDS.sleep(1);
+						TimeUnit.SECONDS.sleep(1);
 						if (activeList.get(1).hp <= 0) {
 							System.out.println(activeList.get(1).getName() + " fainted!");
 							activeList.remove(1);
@@ -337,7 +342,7 @@ public class Main {
 							activeList.get(0).takeDamage(damageDone2, activeList.get(0).hp);
 							specialStatChange(activeList);
 							System.out.println(activeList.get(1).getName() + " used " + activeList.get(1).useMove(activeList.get(1).getName()) + ", dealing " + damageDone2 + " special damage.");
-							//TimeUnit.SECONDS.sleep(1);
+							TimeUnit.SECONDS.sleep(1);
 							if (activeList.get(0).hp <= 0) {
 								System.out.println(activeList.get(0).getName() + " fainted!");
 								activeList.remove(0);
@@ -351,7 +356,7 @@ public class Main {
 						activeList.get(0).takeDamage(damageDone2, activeList.get(0).hp);
 						specialStatChange(activeList);
 						System.out.println(activeList.get(1).getName() + " used " + activeList.get(1).useMove(activeList.get(1).getName()) + ", dealing " + damageDone2 + " special damage.");
-						//TimeUnit.SECONDS.sleep(1);
+						TimeUnit.SECONDS.sleep(1);
 						if (activeList.get(0).hp <= 0) {
 							System.out.println(activeList.get(0).getName() + " fainted!");
 							activeList.remove(0);
@@ -363,7 +368,7 @@ public class Main {
 							activeList.get(1).takeDamage(damageDone, activeList.get(1).hp);
 							specialStatChange(activeList);
 							System.out.println(activeList.get(0).getName() + " used " + activeList.get(0).useMove(activeList.get(0).getName()) + ", dealing " + damageDone + " special damage.");
-							//TimeUnit.SECONDS.sleep(1);
+							TimeUnit.SECONDS.sleep(1);
 							if (activeList.get(1).hp <= 0) {
 								System.out.println(activeList.get(1).getName() + " fainted!");
 								activeList.remove(1);
@@ -379,7 +384,7 @@ public class Main {
 					damageDone = activeList.get(0).giveDamage(activeList.get(0).attack, activeList.get(0).def, activeList.get(0).totalStats);
 					activeList.get(1).takeDamage(damageDone, activeList.get(1).hp);
 					System.out.println(activeList.get(0).getName() + " used " + activeList.get(0).useMove(activeList.get(0).getName()) + ", dealing " + damageDone + " damage.");
-					//TimeUnit.SECONDS.sleep(1);
+					TimeUnit.SECONDS.sleep(1);
 					if (activeList.get(1).hp <= 0) {
 						System.out.println(activeList.get(1).getName() + " fainted!");
 						activeList.remove(1);
@@ -392,7 +397,7 @@ public class Main {
 						damageDone2 = activeList.get(1).giveDamage(activeList.get(1).attack, activeList.get(1).def, activeList.get(1).totalStats);
 						activeList.get(0).takeDamage(damageDone2, activeList.get(0).hp);
 						System.out.println(activeList.get(1).getName() + " used " + activeList.get(1).useMove(activeList.get(1).getName()) + ", dealing " + damageDone2 + " damage.");
-						//TimeUnit.SECONDS.sleep(1);
+						TimeUnit.SECONDS.sleep(1);
 						if (activeList.get(0).hp <= 0) {
 							System.out.println(activeList.get(0).getName() + " fainted!");
 							activeList.remove(0);
@@ -407,7 +412,7 @@ public class Main {
 					damageDone2 = activeList.get(1).giveDamage(activeList.get(1).attack, activeList.get(1).def, activeList.get(1).totalStats);
 					activeList.get(0).takeDamage(damageDone2, activeList.get(0).hp);
 					System.out.println(activeList.get(1).getName() + " used " + activeList.get(1).useMove(activeList.get(1).getName()) + ", dealing " + damageDone2 + " damage.");
-					//TimeUnit.SECONDS.sleep(1);
+					TimeUnit.SECONDS.sleep(1);
 					if (activeList.get(0).hp <= 0) {
 						System.out.println(activeList.get(0).getName() + " fainted!");
 						activeList.remove(0);
@@ -420,7 +425,7 @@ public class Main {
 						damageDone = activeList.get(0).giveDamage(activeList.get(0).attack, activeList.get(0).def, activeList.get(0).totalStats);
 						activeList.get(1).takeDamage(damageDone, activeList.get(1).hp);
 						System.out.println(activeList.get(0).getName() + " used " + activeList.get(0).useMove(activeList.get(0).getName()) + ", dealing " + damageDone + " damage.");
-						//TimeUnit.SECONDS.sleep(1);
+						TimeUnit.SECONDS.sleep(1);
 						if (activeList.get(1).hp <= 0) {
 							System.out.println(activeList.get(1).getName() + " fainted!");
 							activeList.remove(1);
@@ -438,7 +443,7 @@ public class Main {
 						damageDone = activeList.get(0).giveDamage(activeList.get(0).attack, activeList.get(0).def, activeList.get(0).totalStats);
 						activeList.get(1).takeDamage(damageDone, activeList.get(1).hp);
 						System.out.println(activeList.get(0).getName() + " used " + activeList.get(0).useMove(activeList.get(0).getName()) + ", dealing " + damageDone + " damage.");
-						//TimeUnit.SECONDS.sleep(1);
+						TimeUnit.SECONDS.sleep(1);
 						if (activeList.get(1).hp <= 0) {
 							System.out.println(activeList.get(1).getName() + " fainted!");
 							activeList.remove(1);
@@ -451,7 +456,7 @@ public class Main {
 							damageDone2 = activeList.get(1).giveDamage(activeList.get(1).attack, activeList.get(1).def, activeList.get(1).totalStats);
 							activeList.get(0).takeDamage(damageDone2, activeList.get(0).hp);
 							System.out.println(activeList.get(1).getName() + " used " + activeList.get(1).useMove(activeList.get(1).getName()) + ", dealing " + damageDone2 + " damage.");
-							//TimeUnit.SECONDS.sleep(1);
+							TimeUnit.SECONDS.sleep(1);
 							if (activeList.get(0).hp <= 0) {
 								System.out.println(activeList.get(0).getName() + " fainted!");
 								activeList.remove(0);
@@ -466,7 +471,7 @@ public class Main {
 						damageDone2 = activeList.get(1).giveDamage(activeList.get(1).attack, activeList.get(1).def, activeList.get(1).totalStats);
 						activeList.get(0).takeDamage(damageDone2, activeList.get(0).hp);
 						System.out.println(activeList.get(1).getName() + " used " + activeList.get(1).useMove(activeList.get(1).getName()) + ", dealing " + damageDone2 + " damage.");
-						//TimeUnit.SECONDS.sleep(1);
+						TimeUnit.SECONDS.sleep(1);
 						if (activeList.get(0).hp <= 0) {
 							System.out.println(activeList.get(0).getName() + " fainted!");
 							activeList.remove(0);
@@ -479,7 +484,7 @@ public class Main {
 							damageDone = activeList.get(0).giveDamage(activeList.get(0).attack, activeList.get(0).def, activeList.get(0).totalStats);
 							activeList.get(1).takeDamage(damageDone, activeList.get(1).hp);
 							System.out.println(activeList.get(0).getName() + " used " + activeList.get(0).useMove(activeList.get(0).getName()) + ", dealing " + damageDone + " damage.");
-							//TimeUnit.SECONDS.sleep(1);
+							TimeUnit.SECONDS.sleep(1);
 							if (activeList.get(1).hp <= 0) {
 								System.out.println(activeList.get(1).getName() + " fainted!");
 								activeList.remove(1);
