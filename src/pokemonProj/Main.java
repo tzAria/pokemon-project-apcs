@@ -4,6 +4,7 @@ package pokemonProj;
 import java.io.File;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
+import javafx.util.Duration;
 
 import javafx.application.Application;
 import javafx.scene.media.Media;
@@ -23,7 +24,13 @@ public class Main {
 		MediaPlayer mediaPlayer2 = new MediaPlayer(hit2);
 		Media hit3 = new Media(new File(winTheme).toURI().toString());
 		MediaPlayer mediaPlayer3 = new MediaPlayer(hit3);
-		mediaPlayer2.play();
+		mediaPlayer2.setOnEndOfMedia(new Runnable() {
+		       public void run() {
+		           mediaPlayer2.seek(Duration.ZERO);
+		         }
+		     });
+
+		mediaPlayer2.play(); 
 
 		//create all pokemon: swinub, cleffa, azurill, pineco, pansear
 		Pokemon swinub = new Pokemon(220, "Swinub", 50, 50, 40, 30, 30, 50, 250, false, false, false);
